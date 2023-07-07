@@ -11,7 +11,7 @@ lb config \
 	--bootloaders grub-efi \
 	--keyring-packages "ubuntu-keyring initramfs-tools" \
 	--linux-packages "linux-image linux-dtb" \
-	--linux-flavours "legacy-rockchip-rk3588" \
+	--linux-flavours "legacy-rk35xx" \
 	--parent-mirror-bootstrap "http://ports.ubuntu.com" \
 	--parent-mirror-chroot "http://ports.ubuntu.com" \
 	--parent-mirror-chroot-security "http://ports.ubuntu.com" \
@@ -25,10 +25,10 @@ lb config \
 	--mirror-binary-security "http://ports.ubuntu.com" \
 	--mirror-debian-installer "http://ports.ubuntu.com"
 
-echo "deb https://apt.armbian.com jammy main jammy-utils jammy-desktop" > config/archives/live.list.chroot
+echo "deb https://beta.armbian.com jammy main jammy-utils jammy-desktop" > config/archives/live.list.chroot
 echo "deb https://ppa.launchpadcontent.net/liujianfeng1994/panfork-mesa/ubuntu/ jammy main" >> config/archives/live.list.chroot
 echo "deb https://ppa.launchpadcontent.net/liujianfeng1994/rockchip-multimedia/ubuntu/ jammy main" >> config/archives/live.list.chroot
-echo "deb https://apt.armbian.com jammy main jammy-utils jammy-desktop" > config/archives/live.list.binary
+echo "deb https://beta.armbian.com jammy main jammy-utils jammy-desktop" > config/archives/live.list.binary
 
 wget https://raw.githubusercontent.com/armbian/build/main/config/armbian.key
 gpg --dearmor < armbian.key > armbian.gpg
