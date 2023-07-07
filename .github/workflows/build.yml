@@ -59,6 +59,7 @@ jobs:
           mkdir iso-build && cd iso-build
           wget https://github.com/amazingfate/rk3588-live-iso/raw/main/lb-config.sh
           wget https://github.com/amazingfate/rk3588-live-iso/raw/main/additional-packages
+          chmod +x lb-config.sh
           ./lb-config.sh
           sudo lb build
       - name: Rollback release
