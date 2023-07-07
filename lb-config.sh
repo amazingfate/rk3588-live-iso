@@ -29,10 +29,13 @@ echo "deb https://apt.armbian.com jammy main jammy-utils jammy-desktop" > config
 echo "deb https://ppa.launchpadcontent.net/liujianfeng1994/panfork-mesa/ubuntu/ jammy main" >> config/archives/live.list.chroot
 echo "deb https://ppa.launchpadcontent.net/liujianfeng1994/rockchip-multimedia/ubuntu/ jammy main" >> config/archives/live.list.chroot
 echo "deb https://apt.armbian.com jammy main jammy-utils jammy-desktop" > config/archives/live.list.binary
+
+wget https://raw.githubusercontent.com/armbian/build/main/config/armbian.key
+gpg --dearmor < armbian.key > armbian.gpg
 curl -S "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x0B2F0747E3BD546820A639B68065BE1FC67AABDE" |gpg --batch --yes --dearmor --output "launchpad-liujianfeng1994.gpg"
-cp /usr/share/keyrings/armbian.gpg config/archives/armbian.key.binary
+cp armbian.gpg config/archives/armbian.key.binary
 cp launchpad-liujianfeng1994.gpg config/archives/launchpad-liujianfeng1994.key.binary
-cp /usr/share/keyrings/armbian.gpg config/archives/armbian.key.chroot
+cp armbian.gpg config/archives/armbian.key.chroot
 cp launchpad-liujianfeng1994.gpg config/archives/launchpad-liujianfeng1994.key.chroot
 
 wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main/packages -O config/package-lists/armbian-cli.list.chroot
