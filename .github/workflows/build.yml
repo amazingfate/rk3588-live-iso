@@ -63,8 +63,17 @@ jobs:
           ./lb-config.sh
           sudo apt -y install qemu-user-static
           sudo lb build
+      - name: Upload iso
+        uses: xresloader/upload-to-github-release@v1
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          release_id: ${{ needs.prepare_release.outputs.release_id }}
+          file: "iso-build/live-*.iso"
+          draft: false
+          overwrite: true
       - name: Rollback release
-        if: failure() && needs.prepare_release.outputs.release_id != ''
+        if: failure()
         uses: author/action-rollback@stable
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
