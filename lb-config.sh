@@ -9,7 +9,7 @@ lb config \
 	--distribution-chroot jammy \
 	--distribution-binary jammy\
 	--bootloaders grub-efi \
-	--keyring-packages "ubuntu-keyring" \
+	--keyring-packages "ubuntu-keyring initramfs-tools" \
 	--linux-packages "linux-image linux-dtb" \
 	--linux-flavours "legacy-rockchip-rk3588" \
 	--parent-mirror-bootstrap "http://ports.ubuntu.com" \
@@ -41,4 +41,5 @@ cp launchpad-liujianfeng1994.gpg config/archives/launchpad-liujianfeng1994.key.c
 wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main/packages -O config/package-lists/armbian-cli.list.chroot
 wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main/packages.additional -O config/package-lists/armbian-cli-addtional.list.chroot
 wget https://raw.githubusercontent.com/armbian/build/main/config/desktop/jammy/environments/gnome/config_base/packages -O config/package-lists/armbian-gnome.list.chroot
+sed -i "/lightdm/d" config/package-lists/armbian-gnome.list.chroot
 cp additional-packages config/package-lists/additional-packages.list.chroot
