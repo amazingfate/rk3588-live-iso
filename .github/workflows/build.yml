@@ -42,7 +42,7 @@ jobs:
       - name: Install deb deps
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: devscripts build-essential debhelper po4a gettext debootstrap libnss-mymachines live-boot-doc live-config-doc live-manual-html systemd-container
+          packages: devscripts build-essential debhelper po4a gettext debootstrap libnss-mymachines live-boot-doc live-config-doc live-manual-html systemd-container qemu-user-static
           version: 1.0
       - name: Build live-build
         shell: bash
@@ -50,9 +50,7 @@ jobs:
           mkdir live-build && cd live-build
           git clone https://salsa.debian.org/amazingfate/live-build.git -b ubuntu-arm64 --depth=1
           cd live-build
-          apt-cache show debhelper
-          apt-cache show po4a
-          apt-cache show gettext
+          sudo apt -y install debhelper po4a gettext
           dpkg-buildpackage -us -uc
           sudo apt -y install ../live-build_*_all.deb
       - name: Build live iso
