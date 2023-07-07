@@ -61,6 +61,7 @@ jobs:
           wget https://github.com/amazingfate/rk3588-live-iso/raw/main/additional-packages
           chmod +x lb-config.sh
           ./lb-config.sh
+          sudo apt -y install qemu-user-static
           sudo lb build
       - name: Rollback release
         if: failure() && needs.prepare_release.outputs.release_id != ''
