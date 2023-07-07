@@ -56,6 +56,9 @@ jobs:
         shell: bash
         run: |
           mkdir iso-build && cd iso-build
+          ls /home/runner/work/rk3588-live-iso/
+          ls /home/runner/work/rk3588-live-iso/rk3588-live-iso/
+          pwd
           cp ../additional-packages ../lb-config.sh .
           ./lb-config.sh
           sudo lb build
