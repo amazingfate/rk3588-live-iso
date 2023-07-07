@@ -57,10 +57,8 @@ jobs:
         shell: bash
         run: |
           mkdir iso-build && cd iso-build
-          ls /home/runner/work/rk3588-live-iso/
-          ls /home/runner/work/rk3588-live-iso/rk3588-live-iso/
-          pwd
-          cp ../additional-packages ../lb-config.sh .
+          wget https://github.com/amazingfate/rk3588-live-iso/raw/main/lb-config.sh
+          wget https://github.com/amazingfate/rk3588-live-iso/raw/main/additional-packages
           ./lb-config.sh
           sudo lb build
       - name: Rollback release
