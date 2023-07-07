@@ -22,7 +22,6 @@ jobs:
           tag_name: ${{ steps.time.outputs.time }}
           body_path: README.md
           token: ${{ secrets.GITHUB_TOKEN }}
-          target_commitish: master
           draft: false
     outputs:
       release_id: ${{ steps.release.outputs.id }}
