@@ -39,15 +39,18 @@ jobs:
           remove-haskell: 'true'
           remove-codeql: 'true'
           remove-docker-images: 'true'
+      - name: Install deb deps
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: devscripts build-essential debhelper-compat po4a gettext
+          version: 1.0
       - name: Build live-build
         shell: bash
         run: |
           mkdir live-build && cd live-build
           git clone https://salsa.debian.org/amazingfate/live-build.git -b ubuntu-arm64 --depth=1
           cd live-build
-          sudo apt update
-          sudo apt -y install devscripts build-essential debhelper-compat po4a gettext
-          dpkg-buildpackages -us -uc
+          dpkg-buildpackage -us -uc
           sudo apt -y install ../live-build_*_all.deb
       - name: Rollback release
         if: failure() && needs.prepare_release.outputs.release_id != ''
