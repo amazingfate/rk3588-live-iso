@@ -42,7 +42,7 @@ jobs:
       - name: Install deb deps
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: devscripts build-essential debhelper-compat po4a gettext
+          packages: devscripts build-essential debhelper po4a gettext
           version: 1.0
       - name: Build live-build
         shell: bash
