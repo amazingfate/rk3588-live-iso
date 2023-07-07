@@ -1,6 +1,7 @@
 lb config \
 	--architecture arm64 \
 	--bootstrap-qemu-arch arm64 \
+	--bootstrap-qemu-static /usr/bin/qemu-aarch64-static \
 	--archive-areas 'main restricted universe multiverse' \
 	--parent-archive-areas 'main restricted universe multiverse' \
 	--debian-installer-distribution jammy \
