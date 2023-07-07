@@ -50,6 +50,9 @@ jobs:
           mkdir live-build && cd live-build
           git clone https://salsa.debian.org/amazingfate/live-build.git -b ubuntu-arm64 --depth=1
           cd live-build
+          apt-cache show debhelper
+          apt-cache show po4a
+          apt-cache show gettext
           dpkg-buildpackage -us -uc
           sudo apt -y install ../live-build_*_all.deb
       - name: Build live iso
