@@ -62,6 +62,7 @@ jobs:
           mkdir iso-build && cd iso-build
           cp ../lb-config.sh .
           cp ../additional-packages .
+          cp ../networkmanager.yaml .
           chmod +x lb-config.sh
           ./lb-config.sh
           sudo apt -y install qemu-user-static

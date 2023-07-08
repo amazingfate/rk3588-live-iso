@@ -4,5 +4,6 @@ malirun
 mesa-utils
 armbian-firmware-full
 chromium-browser
+libwidevinecdm
 vim
 calamares-settings-debian
