@@ -60,6 +60,8 @@ jobs:
         shell: bash
         run: |
           mkdir iso-build && cd iso-build
+          sudo apt -y install tree
+          tree /home/runner/work/rk3588-live-iso/rk3588-live-iso
           wget https://github.com/amazingfate/rk3588-live-iso/raw/main/lb-config.sh
           wget https://github.com/amazingfate/rk3588-live-iso/raw/main/additional-packages
           chmod +x lb-config.sh
