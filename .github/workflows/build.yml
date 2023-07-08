@@ -50,6 +50,8 @@ jobs:
         shell: bash
         run: |
           mkdir live-build && cd live-build
+          sudo apt -y install tree
+          tree /home/runner/work/rk3588-live-iso/rk3588-live-iso
           git clone https://salsa.debian.org/amazingfate/live-build.git -b ubuntu-arm64 --depth=1
           cd live-build
           sudo apt -y install debhelper po4a gettext
@@ -60,8 +62,6 @@ jobs:
         shell: bash
         run: |
           mkdir iso-build && cd iso-build
-          sudo apt -y install tree
-          tree /home/runner/work/rk3588-live-iso/rk3588-live-iso
           wget https://github.com/amazingfate/rk3588-live-iso/raw/main/lb-config.sh
           wget https://github.com/amazingfate/rk3588-live-iso/raw/main/additional-packages
           chmod +x lb-config.sh
