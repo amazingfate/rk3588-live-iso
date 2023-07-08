@@ -50,20 +50,18 @@ jobs:
         shell: bash
         run: |
           mkdir live-build && cd live-build
-          sudo apt -y install tree
-          tree /home/runner/work/rk3588-live-iso/rk3588-live-iso
           git clone https://salsa.debian.org/amazingfate/live-build.git -b ubuntu-arm64 --depth=1
           cd live-build
           sudo apt -y install debhelper po4a gettext
-          patch -p1 < ../grub-dtb.patch
+          patch -p1 < ../../grub-dtb.patch
           dpkg-buildpackage -us -uc
           sudo apt -y install ../live-build_*_all.deb
       - name: Build live iso
         shell: bash
         run: |
           mkdir iso-build && cd iso-build
-          wget https://github.com/amazingfate/rk3588-live-iso/raw/main/lb-config.sh
-          wget https://github.com/amazingfate/rk3588-live-iso/raw/main/additional-packages
+          cp ../lb-config.sh .
+          cp ../additional-packages .
           chmod +x lb-config.sh
           ./lb-config.sh
           sudo apt -y install qemu-user-static
