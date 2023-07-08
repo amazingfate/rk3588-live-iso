@@ -44,6 +44,8 @@ jobs:
         with:
           packages: devscripts build-essential debhelper po4a gettext debootstrap libnss-mymachines live-boot-doc live-config-doc live-manual-html systemd-container qemu-user-static
           version: 1.0
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Build live-build
         shell: bash
         run: |
@@ -51,7 +53,7 @@ jobs:
           git clone https://salsa.debian.org/amazingfate/live-build.git -b ubuntu-arm64 --depth=1
           cd live-build
           sudo apt -y install debhelper po4a gettext
-          sed -i "s|vmlinuz-\*\${DEFAULT_FLAVOUR}|vmlinuz-\*|g" scripts/build/binary_grub_cfg
+          patch -p1 < ../grub-dtb.patch
           dpkg-buildpackage -us -uc
           sudo apt -y install ../live-build_*_all.deb
       - name: Build live iso
