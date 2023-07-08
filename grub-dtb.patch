@@ -10,7 +10,7 @@ index c41a4fb..5085d71 100755
 +	if [ "\$productname" == "ROCK 5 Model B" ];then
 +		devicetree $(dirname $KERNEL)/dtb/rockchip/rk3588-rock-5b.dtb
 +	elif [ "\$productname" == "ROCK 5 Model A" ];then
-+		devicetree $(dirname $KERNEL)/dtb/rockchip/rk3588-rocks-5a.dtb
++		devicetree $(dirname $KERNEL)/dtb/rockchip/rk3588s-rock-5a.dtb
 +	elif [ "\$productname" == "Indiedroid Nova" ];then
 +		devicetree $(dirname $KERNEL)/dtb/rockchip/rk3588s-9tripod-linux.dtb
 +	elif [ "\$productname" == "NanoPC T6" ];then
