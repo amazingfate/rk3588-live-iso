@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -e
+
+if [ -f /usr/sbin/bootloader-config ]
+then
+	sed -i "s|grub-amd64-efi|grub-arm64-efi|g" /usr/sbin/bootloader-config
+fi
