@@ -1,0 +1,24 @@
+From 38b60d9748964c640898ff1f6b39f6745b90be88 Mon Sep 17 00:00:00 2001
+From: jfliu <jfliu@zshield.net>
+Date: Mon, 17 Jul 2023 09:57:06 +0800
+Subject: [PATCH 1/2] binary_linux-image: install dtbs
+
+---
+ scripts/build/binary_linux-image | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/scripts/build/binary_linux-image b/scripts/build/binary_linux-image
+index d1877daf4..6e4b5ee3f 100755
+--- a/scripts/build/binary_linux-image
++++ b/scripts/build/binary_linux-image
+@@ -62,6 +62,7 @@ mkdir -p "${DESTDIR}"
+ 
+ # Installing linux-image
+ cp -a chroot/boot/"${LINUX}"-* "${DESTDIR}"
++cp -a chroot/boot/dtb-* "${DESTDIR}/dtb" 2>&1 || Echo_message "Sking installing missing dtbs."
+ cp -a chroot/boot/initrd.img-* "${DESTDIR}" 2>&1 || Echo_message "Skip installing missing initrd."
+ 
+ case "${LB_INITRAMFS}" in
+-- 
+2.34.1
+

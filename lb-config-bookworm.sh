@@ -1,4 +1,4 @@
-lb config \
+LB_IMAGE_NAME="debian-bookworm-live" lb config \
 	--architecture arm64 \
 	--bootstrap-qemu-arch arm64 \
 	--bootstrap-qemu-static /usr/bin/qemu-aarch64-static \
@@ -27,12 +27,17 @@ lb config \
 
 echo "deb https://beta.armbian.com bookworm main bookworm-utils bookworm-desktop" > config/archives/live.list.chroot
 echo "deb https://beta.armbian.com bookworm main bookworm-utils bookworm-desktop" > config/archives/live.list.binary
+echo "deb https://download.opensuse.org/repositories/home:/amazingfate:/panfork-mesa/Debian_12/ ./" >> config/archives/live.list.chroot
+echo "deb https://download.opensuse.org/repositories/home:/amazingfate:/panfork-mesa/Debian_12/ ./" >> config/archives/live.list.binary
 
 wget https://raw.githubusercontent.com/armbian/build/main/config/armbian.key
 gpg --dearmor < armbian.key > armbian.gpg
-#curl -S "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0xdf00faf1c577104b50bf1d0093d6889f9f0e78d5" |gpg --batch --yes --dearmor --output armbian.gpg
 cp armbian.gpg config/archives/armbian.key.binary
 cp armbian.gpg config/archives/armbian.key.chroot
+wget https://download.opensuse.org/repositories/home:/amazingfate:/panfork-mesa/Debian_12/Release.key
+gpg --dearmor < Release.key > obs-amazingfate.gpg
+cp obs-amazingfate.gpg config/archives/obs-amazingfate.key.binary
+cp obs-amazingfate.gpg config/archives/obs-amazingfate.key.chroot
 
 wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main/packages -O config/package-lists/armbian-cli.list.chroot
 wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main/packages.additional -O config/package-lists/armbian-cli-addtional.list.chroot
