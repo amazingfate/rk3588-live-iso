@@ -45,7 +45,7 @@ jobs:
       - name: Install deb deps
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: devscripts build-essential debhelper po4a gettext debootstrap libnss-mymachines live-boot-doc live-config-doc live-manual-html systemd-container qemu-user-static
+          packages: devscripts build-essential debhelper po4a gettext debootstrap libnss-mymachines live-boot-doc live-config-doc live-manual-html systemd-container qemu-user-static debian-archive-keyring
           version: 1.0
       - name: Checkout
         uses: actions/checkout@v3
@@ -71,7 +71,7 @@ jobs:
           cp ../0001-install-grub-efi-arm64.hook.chroot .
           chmod +x lb-config.sh
           ./lb-config.sh
-          sudo apt -y install qemu-user-static
+          sudo apt -y install qemu-user-static debian-archive-keyring
           sudo lb build
       - name: Upload iso
         uses: xresloader/upload-to-github-release@v1
