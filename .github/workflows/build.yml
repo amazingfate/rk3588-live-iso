@@ -68,6 +68,7 @@ jobs:
           cp ../lb-config-${{ matrix.CODENAME }}.sh lb-config.sh
           cp ../additional-packages.${{ matrix.CODENAME }} additional-packages
           cp ../networkmanager.yaml .
+          cp ../0001-install-grub-efi-arm64.hook.chroot .
           chmod +x lb-config.sh
           ./lb-config.sh
           sudo apt -y install qemu-user-static
