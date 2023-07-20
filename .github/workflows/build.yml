@@ -52,6 +52,7 @@ jobs:
       - name: Build live-build
         shell: bash
         run: |
+          sudo apt update
           mkdir live-build && cd live-build
           git clone https://salsa.debian.org/live-team/live-build.git -b master --depth=1
           cd live-build
