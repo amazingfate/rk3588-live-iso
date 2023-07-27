@@ -57,7 +57,7 @@ jobs:
           git clone https://salsa.debian.org/live-team/live-build.git -b master --depth=1
           cd live-build
           sudo apt -y install debhelper po4a gettext
-          patch -p1 ../../0001-binary_linux-image-install-dtbs.patch
+          patch -p1 < ../../0001-binary_linux-image-install-dtbs.patch
           patch -p1 < ../../grub-dtb.patch
           dpkg-buildpackage -us -uc
           sudo apt -y install ../live-build_*_all.deb
