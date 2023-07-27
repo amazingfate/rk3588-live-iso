@@ -49,5 +49,5 @@ mkdir -p config/includes.chroot_after_packages/etc/netplan
 cp networkmanager.yaml config/includes.chroot_after_packages/etc/netplan
 
 cp 0001-install-grub-efi-arm64.hook.chroot config/hooks/live
-mkdir -p config/includes.chroot/etc/grub.d/
-cp 10_linux config/includes.chroot/etc/grub.d/
+mkdir -p config/includes.chroot_after_packages/etc/grub.d/
+cp 10_linux config/includes.chroot_after_packages/etc/grub.d/
