@@ -1,8 +1,8 @@
 diff --git a/scripts/build/binary_grub_cfg b/scripts/build/binary_grub_cfg
-index c41a4fb..5085d71 100755
+index c41a4fba4..f7c91b6f7 100755
 --- a/scripts/build/binary_grub_cfg
 +++ b/scripts/build/binary_grub_cfg
-@@ -54,6 +54,28 @@ Grub_live_menu_entry() {
+@@ -54,6 +54,30 @@ Grub_live_menu_entry() {
  
  	cat >> "${LIVE_ENTRIES_TMP}" <<END
  menuentry "${LABEL}"${HOTKEY} {
@@ -27,11 +27,13 @@ index c41a4fb..5085d71 100755
 +		devicetree $(dirname $KERNEL)/dtb/rockchip/rk3588s-orangepi-5.dtb
 +	elif [ "\$productname" == "Orange Pi 5 Plus" ];then
 +		devicetree $(dirname $KERNEL)/dtb/rockchip/rk3588-orangepi-5-plus.dtb
++	elif [ "\$productname" == "H88K" ];then
++		devicetree $(dirname $KERNEL)/dtb/rockchip/rk3588-hinlink-h88k.dtb
 +	fi
  	linux	$KERNEL $APPEND
  	initrd	$INITRD
  }
-@@ -114,7 +136,7 @@ fi
+@@ -114,7 +138,7 @@ fi
  
  # Default entries
  DEFAULT_FLAVOUR="$(echo ${LB_LINUX_FLAVOURS} | awk '{ print $1 }')"

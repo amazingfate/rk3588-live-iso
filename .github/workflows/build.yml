@@ -69,6 +69,7 @@ jobs:
           cp ../additional-packages.${{ matrix.CODENAME }} additional-packages
           cp ../networkmanager.yaml .
           cp ../0001-install-grub-efi-arm64.hook.chroot .
+          cp ../10_linux .
           chmod +x lb-config.sh
           ./lb-config.sh
           sudo apt -y install qemu-user-static debian-archive-keyring
