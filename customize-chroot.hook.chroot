@@ -7,3 +7,5 @@ then
 	sed -i "s|grub-efi-amd64|grub-efi-arm64|g" /usr/sbin/bootloader-config
 	sed -i "s|installEFIFallback: false|installEFIFallback: true|g" /etc/calamares/modules/bootloader.conf
 fi
+
+ssh-keygen -A
