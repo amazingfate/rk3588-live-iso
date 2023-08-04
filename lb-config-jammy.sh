@@ -47,4 +47,5 @@ cp additional-packages config/package-lists/additional-packages.list.chroot
 mkdir -p config/includes.chroot_after_packages/etc/netplan
 cp networkmanager.yaml config/includes.chroot_after_packages/etc/netplan
 
-cp customize-chroot.hook.chroot config/hooks/live
+mkdir -p config/includes.chroot_after_packages/etc/grub.d/
+cp 10_linux config/includes.chroot_after_packages/etc/grub.d/

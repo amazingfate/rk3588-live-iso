@@ -6,7 +6,6 @@ armbian-firmware-full
 chromium-browser
 libwidevinecdm
 vim
-calamares-settings-debian
 grub-efi-arm64
-cryptsetup
-keyutils
+ubiquity
+ubiquity-slideshow-ubuntu

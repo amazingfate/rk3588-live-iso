@@ -8,4 +8,4 @@ then
 	sed -i "s|installEFIFallback: false|installEFIFallback: true|g" /etc/calamares/modules/bootloader.conf
 fi
 
-ssh-keygen -A
+echo "chroot \$CHROOT /usr/bin/ssh-keygen -A" >> /usr/sbin/bootloader-config
