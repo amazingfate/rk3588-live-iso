@@ -67,8 +67,9 @@ jobs:
           mkdir iso-build && cd iso-build
           cp ../lb-config-${{ matrix.CODENAME }}.sh lb-config.sh
           cp ../additional-packages.${{ matrix.CODENAME }} additional-packages
+          cp ../additional-packages-live.jammy additional-packages-live.jammy
           cp ../networkmanager.yaml .
-          cp ../customize-chroot.hook.chroot .
+          cp ../customize-chroot-${{ matrix.CODENAME }}.hook.chroot customize-chroot.hook.chroot
           cp ../10_linux .
           chmod +x lb-config.sh
           ./lb-config.sh

@@ -7,5 +7,4 @@ chromium-browser
 libwidevinecdm
 vim
 grub-efi-arm64
-ubiquity
-ubiquity-slideshow-ubuntu
+ubuntu-desktop

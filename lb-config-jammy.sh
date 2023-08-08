@@ -38,14 +38,17 @@ cp launchpad-liujianfeng1994.gpg config/archives/launchpad-liujianfeng1994.key.b
 cp armbian.gpg config/archives/armbian.key.chroot
 cp launchpad-liujianfeng1994.gpg config/archives/launchpad-liujianfeng1994.key.chroot
 
-wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main/packages -O config/package-lists/armbian-cli.list.chroot
-wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main/packages.additional -O config/package-lists/armbian-cli-addtional.list.chroot
-wget https://raw.githubusercontent.com/armbian/build/main/config/desktop/jammy/environments/gnome/config_base/packages -O config/package-lists/armbian-gnome.list.chroot
-sed -i "/lightdm/d" config/package-lists/armbian-gnome.list.chroot
-cp additional-packages config/package-lists/additional-packages.list.chroot
+wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main/packages -O config/package-lists/armbian-cli.list.chroot_install
+wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main/packages.additional -O config/package-lists/armbian-cli-addtional.list.chroot_install
+wget https://raw.githubusercontent.com/armbian/build/main/config/desktop/jammy/environments/gnome/config_base/packages -O config/package-lists/armbian-gnome.list.chroot_install
+sed -i "/lightdm/d" config/package-lists/armbian-gnome.list.chroot_install
+sed -i "/openssh-server/d" config/package-lists/armbian-gnome.list.chroot_install
+cp additional-packages config/package-lists/additional-packages.list.chroot_install
+cp additional-packages-live.jammy config/package-lists/additional-packages.list.chroot_live
 
 mkdir -p config/includes.chroot_after_packages/etc/netplan
 cp networkmanager.yaml config/includes.chroot_after_packages/etc/netplan
 
+cp customize-chroot.hook.chroot config/hooks/live
 mkdir -p config/includes.chroot_after_packages/etc/grub.d/
 cp 10_linux config/includes.chroot_after_packages/etc/grub.d/

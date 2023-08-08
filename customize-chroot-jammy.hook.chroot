@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+sed -i "s|filesystem.manifest-remove|filesystem.packages-remove|g" /usr/share/ubiquity/install.py
+sed -i "s|filesystem.manifest-remove|filesystem.packages-remove|g" /usr/share/ubiquity/plugininstall.py
