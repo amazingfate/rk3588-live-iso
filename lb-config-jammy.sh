@@ -42,7 +42,7 @@ wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main
 wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main/packages.additional -O config/package-lists/armbian-cli-addtional.list.chroot_install
 wget https://raw.githubusercontent.com/armbian/build/main/config/desktop/jammy/environments/gnome/config_base/packages -O config/package-lists/armbian-gnome.list.chroot_install
 sed -i "/lightdm/d" config/package-lists/armbian-gnome.list.chroot_install
-sed -i "/openssh-server/d" config/package-lists/armbian-gnome.list.chroot_install
+sed -i "/openssh-server/d" config/package-lists/armbian-cli.list.chroot_install
 cp additional-packages config/package-lists/additional-packages.list.chroot_install
 cp additional-packages-live.jammy config/package-lists/additional-packages.list.chroot_live
 
