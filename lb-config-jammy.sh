@@ -45,6 +45,7 @@ sed -i "/lightdm/d" config/package-lists/armbian-gnome.list.chroot_install
 sed -i "/openssh-server/d" config/package-lists/armbian-cli.list.chroot_install
 cp additional-packages config/package-lists/additional-packages.list.chroot_install
 cp additional-packages-live.jammy config/package-lists/additional-packages.list.chroot_live
+mv config/package-lists/live.list.chroot config/package-lists/live.list.chroot_live
 
 mkdir -p config/includes.chroot_after_packages/etc/netplan
 cp networkmanager.yaml config/includes.chroot_after_packages/etc/netplan
