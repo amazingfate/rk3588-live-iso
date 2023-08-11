@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
-sed -i "s|filesystem.manifest-remove|filesystem.packages-remove|g" /usr/share/ubiquity/install.py
-sed -i "s|filesystem.manifest-remove|filesystem.packages-remove|g" /usr/share/ubiquity/plugininstall.py
+sed -i "s|filesystem.manifest|filesystem.packages|g" /usr/share/ubiquity/install.py
+sed -i "s|filesystem.manifest|filesystem.packages|g" /usr/share/ubiquity/plugininstall.py
 sed -i "s|'/cdrom'|'/run/live/medium'|g" /usr/share/ubiquity/plugininstall.py
 sed -i "s|'/cdrom'|'/run/live/medium'|g" /usr/lib/ubiquity/ubiquity/install_misc.py
 echo "export LIVE_MEDIA_PATH=live" > /etc/casper.conf
