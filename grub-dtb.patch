@@ -7,7 +7,7 @@ index c41a4fba4..9d7fd0bdc 100755
  	cat >> "${LIVE_ENTRIES_TMP}" <<END
  menuentry "${LABEL}"${HOTKEY} {
 +	smbios -t 11 -s 4 --set=devicetreename
-+	if [ -f "\$devicetreename" ];then
++	if [ -f $(dirname $KERNEL)/dtb/rockchip/\$devicetreename ];then
 +		devicetree $(dirname $KERNEL)/dtb/rockchip/\$devicetreename
 +	fi
  	linux	$KERNEL $APPEND

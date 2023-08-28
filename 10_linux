@@ -187,7 +187,7 @@ EOF
   if test -e /sys/firmware/devicetree/base/name; then
     sed "s/^/$submenu_indentation/" << EOF
 	smbios -t 11 -s 4 --set=devicetreename
-	if [ -f "${rel_dirname}/dtb/rockchip/\$devicetreename" ];then
+	if [ -f ${rel_dirname}/dtb/rockchip/\$devicetreename ];then
 		devicetree ${rel_dirname}/dtb/rockchip/\$devicetreename
 	fi
 EOF
