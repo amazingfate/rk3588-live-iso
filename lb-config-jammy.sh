@@ -40,7 +40,7 @@ cp launchpad-liujianfeng1994.gpg config/archives/launchpad-liujianfeng1994.key.b
 cp armbian.gpg config/archives/armbian.key.chroot
 cp launchpad-liujianfeng1994.gpg config/archives/launchpad-liujianfeng1994.key.chroot
 
-wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main/packages -O config/package-lists/armbian-cli.list.chroot_install
+wget https://raw.githubusercontent.com/armbian/build/main/config/cli/jammy/main/packages -O config/package-lists/armbian-cli.list.chroot_install
 wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main/packages.additional -O config/package-lists/armbian-cli-addtional.list.chroot_install
 wget https://raw.githubusercontent.com/armbian/build/main/config/desktop/jammy/environments/gnome/config_base/packages -O config/package-lists/armbian-gnome.list.chroot_install
 sed -i "/lightdm/d" config/package-lists/armbian-gnome.list.chroot_install
