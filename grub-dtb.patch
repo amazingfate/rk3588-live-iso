@@ -2,7 +2,7 @@ diff --git a/scripts/build/binary_grub_cfg b/scripts/build/binary_grub_cfg
 index c41a4fba4..9d7fd0bdc 100755
 --- a/scripts/build/binary_grub_cfg
 +++ b/scripts/build/binary_grub_cfg
-@@ -54,6 +54,10 @@ Grub_live_menu_entry() {
+@@ -54,6 +54,12 @@ Grub_live_menu_entry() {
  
  	cat >> "${LIVE_ENTRIES_TMP}" <<END
  menuentry "${LABEL}"${HOTKEY} {
