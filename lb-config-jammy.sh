@@ -8,6 +8,7 @@ LB_IMAGE_NAME="ubuntu-jammy-live" lb config \
 	--distribution jammy \
 	--distribution-chroot jammy \
 	--distribution-binary jammy\
+	--apt-recommends false \
 	--bootloaders grub-efi \
 	--keyring-packages "ubuntu-keyring initramfs-tools" \
 	--linux-packages "linux-image linux-dtb" \
