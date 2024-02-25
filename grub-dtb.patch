@@ -9,6 +9,8 @@ index c41a4fba4..9d7fd0bdc 100755
 +	smbios -t 11 -s 4 --set=devicetreename
 +	if [ -f $(dirname $KERNEL)/dtb/rockchip/\$devicetreename ];then
 +		devicetree $(dirname $KERNEL)/dtb/rockchip/\$devicetreename
++	elif [ -f $(dirname $KERNEL)/dtb/rockchip/\$devicetreename.dtb ];then
++		devicetree $(dirname $KERNEL)/dtb/rockchip/\$devicetreename.dtb
 +	fi
  	linux	$KERNEL $APPEND
  	initrd	$INITRD

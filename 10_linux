@@ -189,6 +189,8 @@ EOF
 	smbios -t 11 -s 4 --set=devicetreename
 	if [ -f ${rel_dirname}/dtb/rockchip/\$devicetreename ];then
 		devicetree ${rel_dirname}/dtb/rockchip/\$devicetreename
+	elif [ -f ${rel_dirname}/dtb/rockchip/\$devicetreename.dtb ];then
+		devicetree ${rel_dirname}/dtb/rockchip/\$devicetreename.dtb
 	fi
 EOF
   fi
