@@ -44,6 +44,7 @@ wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main
 wget https://raw.githubusercontent.com/armbian/build/main/config/desktop/bullseye/environments/gnome/config_base/packages -O config/package-lists/armbian-gnome.list.chroot
 sed -i "/lightdm/d" config/package-lists/armbian-gnome.list.chroot
 cp additional-packages config/package-lists/additional-packages.list.chroot
+cp additional-packages-live.bookworm config/package-lists/additional-packages.list.chroot_live
 
 mkdir -p config/includes.chroot_after_packages/etc/netplan
 cp networkmanager.yaml config/includes.chroot_after_packages/etc/netplan
