@@ -8,8 +8,7 @@ LB_IMAGE_NAME="ubuntu-jammy-live" lb config \
 	--distribution-binary jammy\
 	--apt-recommends false \
 	--bootloaders grub-efi \
-	--chroot-squashfs-compression-level 22 \
-	--chroot-squashfs-compression-type zstd \
+	--compression xz \
 	--keyring-packages "ubuntu-keyring initramfs-tools" \
 	--linux-packages "linux-image linux-dtb" \
 	--linux-flavours "legacy-rk35xx" \
