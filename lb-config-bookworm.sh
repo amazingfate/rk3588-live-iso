@@ -1,7 +1,5 @@
 LB_IMAGE_NAME="debian-bookworm-live" lb config \
 	--architecture arm64 \
-	--bootstrap-qemu-arch arm64 \
-	--bootstrap-qemu-static /usr/bin/qemu-aarch64-static \
 	--archive-areas 'contrib main non-free non-free-firmware' \
 	--parent-archive-areas 'contrib main non-free non-free-firmware' \
 	--debian-installer-distribution bookworm \
