@@ -39,7 +39,7 @@ cp obs-amazingfate.gpg config/archives/obs-amazingfate.key.chroot
 
 wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main/packages -O config/package-lists/armbian-cli.list.chroot
 wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main/packages.additional -O config/package-lists/armbian-cli-addtional.list.chroot
-wget https://raw.githubusercontent.com/armbian/build/main/config/desktop/bullseye/environments/gnome/config_base/packages -O config/package-lists/armbian-gnome.list.chroot
+wget https://raw.githubusercontent.com/armbian/build/main/config/desktop/bookworm/environments/gnome/config_base/packages -O config/package-lists/armbian-gnome.list.chroot
 sed -i "/lightdm/d" config/package-lists/armbian-gnome.list.chroot
 cp additional-packages config/package-lists/additional-packages.list.chroot
 
