@@ -6,3 +6,4 @@ grub-efi-arm64
 gparted
 live-task-localisation
 live-task-recommended
+systemd-timesyncd
