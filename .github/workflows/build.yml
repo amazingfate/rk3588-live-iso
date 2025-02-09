@@ -46,7 +46,7 @@ jobs:
           mkdir live-build && cd live-build
           git clone https://salsa.debian.org/live-team/live-build.git -b master --depth=1
           cd live-build
-          sudo apt -y install debhelper po4a gettext
+          sudo apt -y install debhelper po4a gettext devscripts build-essential
           patch -p1 < ../../0001-binary_linux-image-install-dtbs.patch
           patch -p1 < ../../grub-dtb.patch
           dpkg-buildpackage -us -uc
