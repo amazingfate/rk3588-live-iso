@@ -6,7 +6,6 @@ LB_IMAGE_NAME="debian-bookworm-live" lb config \
 	--distribution bookworm \
 	--distribution-chroot bookworm \
 	--distribution-binary bookworm\
-	--apt-recommends false \
 	--bootloaders grub-efi \
 	--keyring-packages "debian-archive-keyring ca-certificates fontconfig-config initramfs-tools" \
 	--linux-packages "linux-image linux-dtb linux-headers" \
@@ -42,6 +41,7 @@ wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main
 wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main/packages.additional -O config/package-lists/armbian-cli-addtional.list.chroot
 wget https://raw.githubusercontent.com/armbian/build/main/config/desktop/bookworm/environments/gnome/config_base/packages -O config/package-lists/armbian-gnome.list.chroot
 sed -i "/lightdm/d" config/package-lists/armbian-gnome.list.chroot
+sed -i "/wireguard-tools/d" config/package-lists/armbian-cli.list.chroot
 cp additional-packages config/package-lists/additional-packages.list.chroot
 
 mkdir -p config/includes.chroot_after_packages/etc/netplan
