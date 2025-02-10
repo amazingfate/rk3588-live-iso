@@ -49,6 +49,7 @@ jobs:
           sudo apt -y install debhelper po4a gettext devscripts build-essential
           patch -p1 < ../../0001-binary_linux-image-install-dtbs.patch
           patch -p1 < ../../grub-dtb.patch
+          patch -p1 < ../../remove-raspi-firmware.patch
           dpkg-buildpackage -us -uc
           sudo apt -y install ../live-build_*_all.deb
       - name: Build live iso

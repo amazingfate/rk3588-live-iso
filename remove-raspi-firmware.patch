@@ -1,0 +1,13 @@
+diff --git a/functions/firmwarelists.sh b/functions/firmwarelists.sh
+index fe11d985a..c3913f68e 100755
+--- a/functions/firmwarelists.sh
++++ b/functions/firmwarelists.sh
+@@ -91,7 +91,7 @@ Firmware_List_From_Contents () {
+ 	# Exclude ARM firmware when no ARM is requested
+ 	if [ ${HAS_ARM_ARCH} -eq 0 ]
+ 	then
+-		BLOCKLIST_FIRMWARE="${BLOCKLIST_FIRMWARE} arm-trusted-firmware-tools crust-firmware firmware-qcom-soc firmware-samsung firmware-ti-connectivity raspi-firmware"
++		BLOCKLIST_FIRMWARE="${BLOCKLIST_FIRMWARE} arm-trusted-firmware-tools crust-firmware firmware-qcom-soc firmware-samsung firmware-ti-connectivity"
+ 	fi
+ 	# Exclude x86 firmware when no x86 is requested
+ 	if [ ${HAS_X86_ARCH} -eq 0 ]
