@@ -6,10 +6,11 @@ LB_IMAGE_NAME="debian-bookworm-live" lb config \
 	--distribution bookworm \
 	--distribution-chroot bookworm \
 	--distribution-binary bookworm\
+	--backports true \
 	--bootloaders grub-efi \
 	--keyring-packages "debian-archive-keyring ca-certificates fontconfig-config initramfs-tools" \
-	--linux-packages "linux-image linux-dtb linux-headers" \
-	--linux-flavours "legacy-rk35xx" \
+	--linux-packages "linux-image linux-headers" \
+	--linux-flavours "vendor-rk35xx" \
 	--parent-mirror-bootstrap "http://ftp.debian.org/debian/" \
 	--parent-mirror-chroot "http://ftp.debian.org/debian/" \
 	--parent-mirror-chroot-security "http://security.debian.org/debian-security/" \
@@ -25,17 +26,11 @@ LB_IMAGE_NAME="debian-bookworm-live" lb config \
 
 echo "deb https://apt.armbian.com bookworm main bookworm-utils bookworm-desktop" > config/archives/live.list.chroot
 echo "deb https://apt.armbian.com bookworm main bookworm-utils bookworm-desktop" > config/archives/live.list.binary
-echo "deb https://download.opensuse.org/repositories/home:/amazingfate:/panfork-mesa/Debian_12/ ./" >> config/archives/live.list.chroot
-echo "deb https://download.opensuse.org/repositories/home:/amazingfate:/panfork-mesa/Debian_12/ ./" >> config/archives/live.list.binary
 
 wget https://raw.githubusercontent.com/armbian/build/main/config/armbian.key
 gpg --dearmor < armbian.key > armbian.gpg
 cp armbian.gpg config/archives/armbian.key.binary
 cp armbian.gpg config/archives/armbian.key.chroot
-wget https://download.opensuse.org/repositories/home:/amazingfate:/panfork-mesa/Debian_12/Release.key
-gpg --dearmor < Release.key > obs-amazingfate.gpg
-cp obs-amazingfate.gpg config/archives/obs-amazingfate.key.binary
-cp obs-amazingfate.gpg config/archives/obs-amazingfate.key.chroot
 
 wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main/packages -O config/package-lists/armbian-cli.list.chroot
 wget https://raw.githubusercontent.com/armbian/build/main/config/cli/common/main/packages.additional -O config/package-lists/armbian-cli-addtional.list.chroot
@@ -50,3 +45,5 @@ cp networkmanager.yaml config/includes.chroot_after_packages/etc/netplan
 cp customize-chroot.hook.chroot config/hooks/live
 mkdir -p config/includes.chroot_after_packages/etc/grub.d/
 cp 10_linux config/includes.chroot_after_packages/etc/grub.d/
+mkdir -p config/includes.chroot_after_packages/etc/kernel/postinst.d/
+cp zz-rk3588-update-dtb-for-edk2 config/includes.chroot_after_packages/etc/kernel/postinst.d/

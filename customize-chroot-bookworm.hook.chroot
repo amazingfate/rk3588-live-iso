@@ -9,3 +9,26 @@ then
 fi
 
 echo "chroot \$CHROOT /usr/bin/ssh-keygen -A" >> /usr/sbin/bootloader-config
+
+cat << EOF > /usr/lib/calamares/modules/calamares-copy-dtbs.sh
+#!/bin/bash
+set -ex
+
+if ! mountpoint -q /boot/efi; then
+        mount /boot/efi || exit 1
+fi
+
+mkdir -p /boot/efi/base
+mkdir -p /boot/efi/overlays
+cp /usr/lib/linux-image-*/rockchip/*.dtb /boot/efi/base
+cp /usr/lib/linux-image-*/rockchip/rockchip-rk3588-panthor-gpu.dtbo /boot/efi/overlays
+EOF
+
+chmod +x /usr/lib/calamares/modules/calamares-copy-dtbs.sh
+
+cat << EOF > /etc/calamares/modules/install-dtb.conf
+---
+shellprocess:
+    - filename: "/usr/lib/calamares/modules/calamares-copy-dtbs.sh"
+      timeout: 30
+EOF
