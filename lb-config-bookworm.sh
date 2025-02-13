@@ -51,5 +51,3 @@ cp networkmanager.yaml config/includes.chroot_after_packages/etc/netplan
 cp customize-chroot.hook.chroot config/hooks/live
 mkdir -p config/includes.chroot_after_packages/etc/grub.d/
 cp 10_linux config/includes.chroot_after_packages/etc/grub.d/
-mkdir -p config/includes.chroot_after_packages/etc/kernel/postinst.d/
-cp zz-rk3588-update-dtb-for-edk2 config/includes.chroot_after_packages/etc/kernel/postinst.d/

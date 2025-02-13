@@ -62,7 +62,6 @@ jobs:
           cp ../networkmanager.yaml .
           cp ../customize-chroot-${{ matrix.CODENAME }}.hook.chroot customize-chroot.hook.chroot
           cp ../10_linux .
-          cp ../zz-rk3588-update-dtb-for-edk2 .
           chmod +x lb-config.sh
           ./lb-config.sh
           sudo apt -y install qemu-user-static debian-archive-keyring
