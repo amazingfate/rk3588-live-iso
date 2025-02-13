@@ -28,6 +28,8 @@ echo "deb https://apt.armbian.com bookworm main bookworm-utils bookworm-desktop"
 echo "deb https://apt.armbian.com bookworm main bookworm-utils bookworm-desktop" > config/archives/live.list.binary
 echo "deb http://download.opensuse.org/repositories/home:/amazingfate:/grub-dtbo/Debian_12/ /" >> config/archives/live.list.chroot
 echo "deb http://download.opensuse.org/repositories/home:/amazingfate:/grub-dtbo/Debian_12/ /" >> config/archives/live.list.binary
+echo "deb http://download.opensuse.org/repositories/home:/amazingfate:/panfork-mesa/Debian_12/ /" >> config/archives/live.list.chroot
+echo "deb http://download.opensuse.org/repositories/home:/amazingfate:/panfork-mesa/Debian_12/ /" >> config/archives/live.list.binary
 
 wget https://raw.githubusercontent.com/armbian/build/main/config/armbian.key
 gpg --dearmor < armbian.key > armbian.gpg
