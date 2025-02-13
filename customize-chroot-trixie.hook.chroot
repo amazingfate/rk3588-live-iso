@@ -1,0 +1,5 @@
+#!/bin/sh
+
+set -e
+
+echo "chroot \$CHROOT /usr/bin/ssh-keygen -A" >> /usr/sbin/bootloader-config

@@ -30,7 +30,7 @@ jobs:
     needs: prepare_release
     strategy:
       matrix:
-        CODENAME: [bookworm]
+        CODENAME: [bookworm,trixie]
     steps:
       - name: Install deb deps
         uses: awalsh128/cache-apt-pkgs-action@latest
