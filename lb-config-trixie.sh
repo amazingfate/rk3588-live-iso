@@ -9,7 +9,7 @@ LB_IMAGE_NAME="debian-trixie-live" lb config \
 	--bootloaders grub-efi \
 	--keyring-packages "debian-archive-keyring ca-certificates fontconfig-config initramfs-tools" \
 	--linux-packages "linux-image linux-headers" \
-	--linux-flavours "vendor-rk35xx" \
+	--linux-flavours "edge-rockchip64" \
 	--parent-mirror-bootstrap "http://ftp.debian.org/debian/" \
 	--parent-mirror-chroot "http://ftp.debian.org/debian/" \
 	--parent-mirror-chroot-security "http://security.debian.org/debian-security/" \
@@ -27,8 +27,6 @@ echo "deb https://apt.armbian.com trixie main trixie-utils trixie-desktop" > con
 echo "deb https://apt.armbian.com bookworm main trixie-utils trixie-desktop" > config/archives/live.list.binary
 echo "deb http://download.opensuse.org/repositories/home:/amazingfate:/grub-dtbo/Debian_Testing/ /" >> config/archives/live.list.chroot
 echo "deb http://download.opensuse.org/repositories/home:/amazingfate:/grub-dtbo/Debian_Testing/ /" >> config/archives/live.list.binary
-echo "deb http://download.opensuse.org/repositories/home:/amazingfate:/libmali-rockchip/Debian_Testing/ /" >> config/archives/live.list.chroot
-echo "deb http://download.opensuse.org/repositories/home:/amazingfate:/libmali-rockchip/Debian_Testing/ /" >> config/archives/live.list.binary
 
 wget https://raw.githubusercontent.com/armbian/build/main/config/armbian.key
 gpg --dearmor < armbian.key > armbian.gpg
