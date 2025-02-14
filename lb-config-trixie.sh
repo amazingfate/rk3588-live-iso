@@ -23,8 +23,8 @@ LB_IMAGE_NAME="debian-trixie-live" lb config \
 	--mirror-binary-security "http://security.debian.org/debian-security/" \
 	--mirror-debian-installer "http://ftp.debian.org/debian/"
 
-echo "deb https://apt.armbian.com trixie main trixie-utils trixie-desktop" > config/archives/live.list.chroot
-echo "deb https://apt.armbian.com bookworm main trixie-utils trixie-desktop" > config/archives/live.list.binary
+echo "deb https://beta.armbian.com trixie main trixie-utils trixie-desktop" > config/archives/live.list.chroot
+echo "deb https://beta.armbian.com bookworm main trixie-utils trixie-desktop" > config/archives/live.list.binary
 echo "deb http://download.opensuse.org/repositories/home:/amazingfate:/grub-dtbo/Debian_Testing/ /" >> config/archives/live.list.chroot
 echo "deb http://download.opensuse.org/repositories/home:/amazingfate:/grub-dtbo/Debian_Testing/ /" >> config/archives/live.list.binary
 
