@@ -9,7 +9,7 @@ LB_IMAGE_NAME="debian-bookworm-live" lb config \
 	--backports true \
 	--bootloaders grub-efi \
 	--keyring-packages "debian-archive-keyring ca-certificates fontconfig-config initramfs-tools" \
-	--linux-packages "linux-image linux-headers" \
+	--linux-packages "linux-image linux-headers linux-dtb" \
 	--linux-flavours "edge-rockchip64" \
 	--parent-mirror-bootstrap "http://ftp.debian.org/debian/" \
 	--parent-mirror-chroot "http://ftp.debian.org/debian/" \
